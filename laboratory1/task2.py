@@ -9,7 +9,7 @@ def validator(pattern,promt):
     return text
 
 
-def float_greater_zero_validator(promt):
+def number_validator(promt):
     number=float(validator(re_number, promt))
     return number
 
@@ -17,10 +17,10 @@ def len_line(x,y):
     length=(x**2 + y**2)**(1/2)
     return length
 
-x_1 = float_greater_zero_validator("Введіть абсцису точки А: ")
-y_1 = float_greater_zero_validator("Введіть ординатуі точки А: ")
-x_2 = float_greater_zero_validator("Введіть абсцису точки В: ")
-y_2 = float_greater_zero_validator("Введіть ординату точки В: ")
+x_1 = number_validator("Введіть абсцису точки А: ")
+y_1 = number_validator("Введіть ординатуі точки А: ")
+x_2 = number_validator("Введіть абсцису точки В: ")
+y_2 = number_validator("Введіть ординату точки В: ")
 
 if len_line(x_1,y_1) > len_line(x_2,y_2) :
     print("Точка В лежить ближче до початку координат")
