@@ -3,6 +3,7 @@
 суму членів послідовності (i/x^i) з i по n, i=1
 '''
 
+
 import re
 
 re_number = re.compile("^[-+]?\d+\.?\d*$")
