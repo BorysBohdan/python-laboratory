@@ -1,12 +1,30 @@
-def exercise2() :
-    print("Визначення яка з двох точок знаходиться ближче до початку координат")
-    x_1 = float(input("Введіть абсцису точки А: "))
-    y_1 = float(input("Введіть ординатуі точки А: "))
-    XY_1 = (x_1**2 + y_1**2)**(1/2)
-    x_2 = float(input("Введіть абсцису точки В: "))
-    y_2 = float(input("Введіть ординату точки В: "))
-    XY_2 = (x_2 ** 2 + y_2 ** 2)**(1/2)
-    if XY_1 > XY_2 :
-        print("Точка В лежить ближче до початку координат")
-    else:
-        print("Точка А лежить ближче до початку координат")
+import re
+
+re_number = re.compile("^[-+]?\d+\.?\d*$")
+
+def validator(pattern,promt):
+    text=input(promt)
+    while not bool(pattern.match(text)):
+        text = input(promt)
+    return text
+
+
+def float_greater_zero_validator(promt):
+    number=float(validator(re_number, promt))
+    return number
+
+def len_line(x,y):
+    length=(x**2 + y**2)**(1/2)
+    return length
+
+x_1 = float_greater_zero_validator("Введіть абсцису точки А: ")
+y_1 = float_greater_zero_validator("Введіть ординатуі точки А: ")
+x_2 = float_greater_zero_validator("Введіть абсцису точки В: ")
+y_2 = float_greater_zero_validator("Введіть ординату точки В: ")
+
+if len_line(x_1,y_1) > len_line(x_2,y_2) :
+    print("Точка В лежить ближче до початку координат")
+elif len_line(x_1,y_1) < len_line(x_2,y_2):
+    print("Точка А лежить ближче до початку координат")
+else:
+    print("Відстань від точок до початку координат рівні")
