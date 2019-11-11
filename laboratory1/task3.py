@@ -8,6 +8,7 @@ f(x)={ 1/(x^3 + 6), якщо якщо x>3
 '''
 
 
+
 import re
 
 re_number = re.compile("^[-+]?\d+\.?\d*$")
